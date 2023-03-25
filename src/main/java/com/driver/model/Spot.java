@@ -13,7 +13,7 @@ public class Spot {
 
     private SpotType spotType;
     private int pricePerHour;
-    private Boolean occupied;
+    private boolean occupied;
 
     @ManyToOne
     @JoinColumn
