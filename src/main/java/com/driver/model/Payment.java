@@ -1,26 +1,33 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.driver.model;
 
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Payment {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private int id;
-
     private boolean paymentCompleted;
     private PaymentMode paymentMode;
-
     @OneToOne
     @JoinColumn
     private Reservation reservation;
 
-
-    public Payment(){
-
+    public Payment() {
     }
+
     public Payment(int id, Boolean paymentCompleted, PaymentMode paymentMode, Reservation reservation) {
         this.id = id;
         this.paymentCompleted = paymentCompleted;
@@ -29,7 +36,7 @@ public class Payment {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -37,7 +44,7 @@ public class Payment {
     }
 
     public Boolean getPaymentCompleted() {
-        return paymentCompleted;
+        return this.paymentCompleted;
     }
 
     public void setPaymentCompleted(Boolean paymentCompleted) {
@@ -45,7 +52,7 @@ public class Payment {
     }
 
     public PaymentMode getPaymentMode() {
-        return paymentMode;
+        return this.paymentMode;
     }
 
     public void setPaymentMode(PaymentMode paymentMode) {
@@ -53,7 +60,7 @@ public class Payment {
     }
 
     public Reservation getReservation() {
-        return reservation;
+        return this.reservation;
     }
 
     public void setReservation(Reservation reservation) {
