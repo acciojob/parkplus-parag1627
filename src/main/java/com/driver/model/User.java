@@ -1,27 +1,38 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.driver.model;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private int id;
-
     private String name;
     private String phoneNumber;
     private String password;
+    @OneToMany(
+            mappedBy = "user",
+            cascade = {CascadeType.ALL}
+    )
+    List<Reservation> reservationList = new ArrayList();
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    List<Reservation> reservationList = new ArrayList<>();
-
-
-    public User(){
-
+    public User() {
     }
+
     public User(int id, String name, String phoneNumber, String password, List<Reservation> reservationList) {
         this.id = id;
         this.name = name;
@@ -31,7 +42,7 @@ public class User {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -39,7 +50,7 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -47,7 +58,7 @@ public class User {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -55,7 +66,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -63,7 +74,7 @@ public class User {
     }
 
     public List<Reservation> getReservationList() {
-        return reservationList;
+        return this.reservationList;
     }
 
     public void setReservationList(List<Reservation> reservationList) {
